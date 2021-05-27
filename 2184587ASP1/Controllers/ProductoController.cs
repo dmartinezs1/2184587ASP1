@@ -46,6 +46,27 @@ namespace _2184587ASP1.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {          
+            
+            try
+                {
+                using (var db = new inventarioEntities())
+                {
+                    var findUser = db.producto.Find(id);
+                    db.producto.Remove(findUser);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                }
+                catch (Exception ex)
+                {
+                ModelState.AddModelError("", "error " + ex);
+                return View();                    
+            }           
+        }
+
+
         public ActionResult Create()
         {
             return View();
