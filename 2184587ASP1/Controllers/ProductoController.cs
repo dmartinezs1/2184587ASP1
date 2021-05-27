@@ -37,6 +37,15 @@ namespace _2184587ASP1.Controllers
             }
         }
 
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventarioEntities())
+            {
+                var findProduct = db.producto.Find(id);
+                return View(findProduct);
+            }
+        }
+
         public ActionResult Create()
         {
             return View();
