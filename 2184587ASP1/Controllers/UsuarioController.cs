@@ -92,7 +92,6 @@ namespace _2184587ASP1.Controllers
             }
 
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuario editUser)

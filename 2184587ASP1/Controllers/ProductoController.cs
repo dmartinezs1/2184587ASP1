@@ -66,6 +66,53 @@ namespace _2184587ASP1.Controllers
             }           
         }
 
+       
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventarioEntities())
+                {
+                    producto findProduct = db.producto.Where(a => a.id == id).FirstOrDefault();
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Edit(producto editProduct)
+        {
+            try
+            {
+                using (var db = new inventarioEntities())
+                {
+                    producto product = db.producto.Find(editProduct.id);
+                    product.nombre = editProduct.nombre;
+                    product.percio_unitario = editProduct.percio_unitario;
+                    product.descripcion = editProduct.descripcion;
+                    product.cantidad = editProduct.cantidad;
+                    product.id_proveedor = editProduct.id_proveedor;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+
 
         public ActionResult Create()
         {
