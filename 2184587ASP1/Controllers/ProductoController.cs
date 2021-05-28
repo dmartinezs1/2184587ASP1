@@ -47,8 +47,7 @@ namespace _2184587ASP1.Controllers
         }
 
         public ActionResult Delete(int id)
-        {          
-            
+        {                   
             try
                 {
                 using (var db = new inventarioEntities())
