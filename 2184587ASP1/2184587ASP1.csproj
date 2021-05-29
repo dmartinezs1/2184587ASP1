@@ -209,6 +209,7 @@
     <Compile Include="Models\producto.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ProductoCompraController.cs" />
     <Compile Include="Models\producto_compra.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -298,6 +299,12 @@
     <Content Include="Views\Compra\listarClientes.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
     <Content Include="Views\Compra\Details.cshtml" />
+    <Content Include="Views\ProductoCompra\Index.cshtml" />
+    <Content Include="Views\ProductoCompra\listarCompras.cshtml" />
+    <Content Include="Views\ProductoCompra\listarProductos.cshtml" />
+    <Content Include="Views\ProductoCompra\Edit.cshtml" />
+    <Content Include="Views\ProductoCompra\Create.cshtml" />
+    <Content Include="Views\ProductoCompra\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
