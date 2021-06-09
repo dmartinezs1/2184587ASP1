@@ -136,5 +136,12 @@ namespace _2184587ASP1.Controllers
             }
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
+
     }
 }
