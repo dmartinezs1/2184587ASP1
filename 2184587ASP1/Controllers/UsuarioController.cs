@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text;
 using System.Web.Mvc;
+using System.Web.Security;
 //importando los modelos de base de datos
 using _2184587ASP1.Models;
 
@@ -135,12 +136,31 @@ namespace _2184587ASP1.Controllers
             }
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string message = "")
         {
+            ViewBag.Message = message;
             return View();
         }
 
-
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string user, string password)
+        {
+            string passEncript = UsuarioController.hashSHA1(password);
+            using (var db = new inventarioEntities())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == user && e.password == passEncript);
+                if (userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email, true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
+        }
     }
 }
