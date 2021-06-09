@@ -11,9 +11,11 @@ using _2184587ASP1.Models;
 
 namespace _2184587ASP1.Controllers
 {
+    
     public class UsuarioController : Controller
     {
         // GET: Usuario
+        [Authorize]
         public ActionResult Index()
         {
             using (var db = new inventarioEntities())
@@ -161,6 +163,13 @@ namespace _2184587ASP1.Controllers
                     return Login("Verifique sus datos");
                 }
             }
+        }
+
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
