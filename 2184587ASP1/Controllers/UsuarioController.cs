@@ -47,8 +47,7 @@ namespace _2184587ASP1.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "error " + ex);
-                return View();
-                
+                return View();             
             }
         }
 
