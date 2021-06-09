@@ -18,7 +18,6 @@ namespace _2184587ASP1.Controllers
             }
             
         }
-
         public static string NombreProveedor(int? idProveedor)
         {
             using (var db = new inventarioEntities())
@@ -28,7 +27,6 @@ namespace _2184587ASP1.Controllers
 
             }
         }
-
         public ActionResult ListarProveedores()
         {
             using (var db = new inventarioEntities())
@@ -36,7 +34,6 @@ namespace _2184587ASP1.Controllers
                 return PartialView(db.proveedor.ToList());
             }
         }
-
         public ActionResult Details(int id)
         {
             using (var db = new inventarioEntities())
@@ -45,7 +42,6 @@ namespace _2184587ASP1.Controllers
                 return View(findProduct);
             }
         }
-
         public ActionResult Delete(int id)
         {                   
             try
@@ -64,8 +60,6 @@ namespace _2184587ASP1.Controllers
                 return View();                    
             }           
         }
-
-       
         public ActionResult Edit(int id)
         {
             try
@@ -82,10 +76,8 @@ namespace _2184587ASP1.Controllers
                 return View();
             }
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Edit(producto editProduct)
         {
             try
@@ -110,17 +102,12 @@ namespace _2184587ASP1.Controllers
                 return View();
             }
         }
-
-
-
         public ActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public ActionResult Create(producto producto)
         {
             if (!ModelState.IsValid)
@@ -140,6 +127,21 @@ namespace _2184587ASP1.Controllers
                 return View();
             }
         }
-
+        public ActionResult Reporte()
+        {
+            var db = new inventarioEntities();
+            
+                var query = from tabProveedor in db.proveedor
+                            join tabProducto in db.producto on tabProveedor.id equals tabProducto.id_proveedor
+                            select new Reporte
+                            {
+                                nombreProveedor = tabProveedor.nombre,
+                                telefonoProveedor = tabProveedor.telefono,
+                                direccionProveedor = tabProveedor.direccion,
+                                nombreProducto = tabProducto.nombre,
+                                precioProducto = tabProducto.percio_unitario
+                            };
+                return View(query);           
+        }
     }
 }

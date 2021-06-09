@@ -11,6 +11,7 @@ namespace _2184587ASP1.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class usuario
     {
@@ -21,10 +22,17 @@ namespace _2184587ASP1.Models
         }
     
         public int id { get; set; }
+        [Required]
+        [StringLength(10, ErrorMessage = "Excedió limite de caracteres (10)")]
         public string nombre { get; set; }
+        [Required]
         public string apellido { get; set; }
+        [Required]
         public Nullable<System.DateTime> fecha_nacimiento { get; set; }
+        [Required]
+        [EmailAddress]
         public string email { get; set; }
+        [Required]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
