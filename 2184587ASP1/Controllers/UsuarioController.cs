@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 //importando los modelos de base de datos
 using _2184587ASP1.Models;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace _2184587ASP1.Controllers
 {
@@ -23,7 +23,7 @@ namespace _2184587ASP1.Controllers
                 return View(db.usuario.ToList());
             }
         }
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -31,7 +31,7 @@ namespace _2184587ASP1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        [Authorize]
         public ActionResult Create(usuario usuario)
         {
             if (!ModelState.IsValid)
@@ -67,7 +67,7 @@ namespace _2184587ASP1.Controllers
             }
             return sb.ToString();
         }
-
+        [Authorize]
         public ActionResult Details(int id)
         {
             using (var db = new inventarioEntities())
@@ -77,7 +77,7 @@ namespace _2184587ASP1.Controllers
 
             }
         }
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             try
@@ -118,7 +118,7 @@ namespace _2184587ASP1.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         public ActionResult Delete(int id)
         {
             try
