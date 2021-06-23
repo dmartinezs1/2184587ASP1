@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 
 @using (Html.BeginForm())
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.percio_unitario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="percio_unitario">Precio unitario</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.percio_unitario, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.percio_unitario, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_proveedor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_proveedor">Provedor</label>
             <div class="col-md-10">
                 @Html.Action("listarProveedores")
                 @Html.ValidationMessageFor(model => model.id_proveedor, "", new { @class = "text-danger" })

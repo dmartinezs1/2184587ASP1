@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_usuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_usuario">Usuario</label>
             <div class="col-md-10">
                 @Html.Action("listarUsuarios")
                 @Html.ValidationMessageFor(model => model.id_usuario, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_cliente, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_cliente">Cliente</label>
             <div class="col-md-10">
                 @Html.Action("listarClientes")
                 @Html.ValidationMessageFor(model => model.id_cliente, "", new { @class = "text-danger" })

@@ -201,7 +201,5 @@ namespace _2184587ASP1.Controllers
         {
             return new ActionAsPdf("ReporteCompra") { FileName = "ReporteCompra.pdf" };
         }
-
-
     }
 }

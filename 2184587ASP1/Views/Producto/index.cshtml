@@ -4,10 +4,10 @@
     ViewBag.Title = "index";
 }
 
-<h2>index</h2>
+<h2>Productos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,11 +47,15 @@
             @_2184587ASP1.Controllers.ProductoController.NombreProveedor(item.id_proveedor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
         </td>
     </tr>
 }
 
 </table>
+
+<p>
+    @Html.ActionLink("Reporte", "Reporte")
+</p>
